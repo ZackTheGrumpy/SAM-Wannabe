@@ -35,6 +35,7 @@
         <DockPanel LastChildFill="True">
             <ui:TitleBar DockPanel.Dock="Top" Title="{Binding Title, Mode=OneWay}"
                          CloseWindowByDoubleClickOnIcon="True"
+                         ShowHelp="False"
                          FontSize="13">
                 <ui:TitleBar.Header>
                     <views:MenuView DataContext="{Binding MenuVm}" />

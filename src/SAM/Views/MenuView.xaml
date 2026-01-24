@@ -110,14 +110,6 @@
                 <ui:MenuItem Header="Reset to Default" Icon="{ui:SymbolIcon ArrowReset24}" Command="{Binding ResetAllSettingsCommand}" />
                 <Separator />
                 <ui:MenuItem Header="View Logs" Icon="{ui:SymbolIcon History24}" Command="{Binding ViewLogsCommand}" />
-                <Separator />
-                <ui:MenuItem Header="Report Issue" Icon="{ui:SymbolIcon Bug24}" Command="{Binding ViewIssuesOnGitHubCommand}" />
-                <Separator />
-                <controls:MenuHeaderItem Header="About" />
-                <ui:MenuItem Header="Version History" Icon="{ui:SymbolIcon DocumentBulletList24}"
-                             Command="{Binding ViewChangelogOnGitHubCommand}" />
-                <ui:MenuItem Header="View on GitHub" Icon="{ui:SymbolIcon Code24}"
-                             Command="{Binding ViewOnGitHubCommand}" />
             </ui:MenuItem>
         </Menu>
         <Separator Margin="0,4,4,4" 
