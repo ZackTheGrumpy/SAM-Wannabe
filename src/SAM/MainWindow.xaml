@@ -11,7 +11,8 @@
                  xmlns:sam="clr-namespace:SAM"
                  mc:Ignorable="d"
                  d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
-                 ExtendsContentIntoTitleBar="True" WindowCornerPreference="DoNotRound"
+                 Title="{Binding Title, Mode=OneWay}"
+                 ExtendsContentIntoTitleBar="True" WindowCornerPreference="Round"
                  WindowBackdropType="Mica">
 
     <ui:FluentWindow.Resources>
@@ -39,7 +40,7 @@
                     <views:MenuView DataContext="{Binding MenuVm}" />
                 </ui:TitleBar.Header>
                 <ui:TitleBar.Icon>
-                    <ui:ImageIcon Source="/SAM.png" />
+                    <ui:ImageIcon Source="/sam.png" />
                 </ui:TitleBar.Icon>
             </ui:TitleBar>
             <ContentControl Content="{Binding CurrentVm}" />

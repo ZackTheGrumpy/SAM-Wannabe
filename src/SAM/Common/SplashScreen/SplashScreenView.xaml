@@ -11,7 +11,7 @@
                  d:DesignHeight="450" d:DesignWidth="800"
                  d:DataContext="{d:DesignInstance Type={x:Type splashScreen:SplashScreenViewModel}, IsDesignTimeCreatable=False}"
                  Width="500" Height="340"
-                 ExtendsContentIntoTitleBar="True" WindowCornerPreference="DoNotRound"
+                 ExtendsContentIntoTitleBar="True" WindowCornerPreference="Round"
                  WindowBackdropType="Mica" WindowStartupLocation="CenterScreen"
                  FontFamily="Segoe UI Light"
                  Foreground="{DynamicResource TextFillColorLightPrimaryBrush}">
@@ -45,7 +45,8 @@
     </dxmvvm:Interaction.Behaviors>
 
     <Grid>
-        <views:SteamSymbol HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{StaticResource AccentBrush}" Margin="0,0,20,0" />
+        <Image Source="/sam.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="30,30,0,0" RenderOptions.BitmapScalingMode="HighQuality" />
+        
         <ui:TitleBar VerticalAlignment="Top" CanMaximize="False" ShowMaximize="False" ShowHelp="False" Opacity="0.5" />
         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,8,25">

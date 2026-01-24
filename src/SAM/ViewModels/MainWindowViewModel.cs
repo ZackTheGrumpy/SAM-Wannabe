@@ -9,7 +9,7 @@ namespace SAM.ViewModels;
 [GenerateViewModel]
 public partial class MainWindowViewModel
 {
-    private const string TITLE_BASE = "Steam Achievement Manager";
+    private const string TITLE_BASE = "SAM | Wannabe Edition";
 
     private readonly ILog log = LogManager.GetLogger(typeof(MainWindowViewModel));
 
