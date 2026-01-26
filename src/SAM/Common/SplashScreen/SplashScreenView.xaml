@@ -45,8 +45,12 @@
     </dxmvvm:Interaction.Behaviors>
 
     <Grid>
-        <Image Source="/sam.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="30,30,0,0" RenderOptions.BitmapScalingMode="HighQuality" />
-        
+        <Image Source="pack://application:,,,/sam.png" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Width="200" 
+               Margin="20,20,0,0" 
+               RenderOptions.BitmapScalingMode="HighQuality" />
         <ui:TitleBar VerticalAlignment="Top" CanMaximize="False" ShowMaximize="False" ShowHelp="False" Opacity="0.5" />
         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,8,25">
