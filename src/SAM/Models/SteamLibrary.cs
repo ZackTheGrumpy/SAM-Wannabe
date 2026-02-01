@@ -19,7 +19,6 @@ using SAM.Core.Messages;
 using SAM.Core.Storage;
 using SAM.Extensions;
 using SAM.Managers;
-using SAM.Extensions;
 
 namespace SAM;
 

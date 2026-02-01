@@ -111,6 +111,36 @@ public partial class SteamApp : BindableBase, ISteamApp
     }
 
     [GenerateCommand]
+    public void OpenInWannabeLauncher()
+    {
+        if (!IsInstalled) return;
+        if (string.IsNullOrEmpty(InstallDirectory)) return;
+        
+        var launcherPath = Path.Combine(InstallDirectory, "WannabeLauncher.exe");
+        
+        if (!File.Exists(launcherPath))
+        {
+            log.Warn($"WannabeLauncher.exe not found in {InstallDirectory}");
+            return;
+        }
+
+        try
+        {
+            var psi = new ProcessStartInfo(launcherPath)
+            {
+                WorkingDirectory = InstallDirectory,
+                UseShellExecute = true
+            };
+
+            Process.Start(psi);
+        }
+        catch (Exception ex)
+        {
+            log.Error($"An error occurred attempting to start WannabeLauncher for '{Name}' ({Id}). {ex.Message}", ex);
+        }
+    }
+
+    [GenerateCommand]
     public void ViewAchievements()
     {
         BrowserHelper.ViewAchievements(Id);

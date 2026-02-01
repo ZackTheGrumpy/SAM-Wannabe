@@ -114,6 +114,8 @@
                                     </ui:MenuItem.HeaderTemplate>
                                 </ui:MenuItem>
                                 <Separator />
+                                <ui:MenuItem Header="Open in Wannabe Launcher" Command="{Binding OpenInWannabeLauncherCommand}"
+                                             Icon="{ui:SymbolIcon XboxController24}" />
                                 <ui:MenuItem Header="Open in Manager" Command="{Binding ManageAppCommand}"
                                              Icon="{ui:SymbolIcon AppGeneric24}" />
                                 <Separator />

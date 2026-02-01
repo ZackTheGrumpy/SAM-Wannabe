@@ -15,6 +15,7 @@ using Microsoft.Win32.SafeHandles;
 using Newtonsoft.Json;
 using SAM.API;
 using SAM.Core;
+using SAM.Extensions;
 using SAM.Core.Logging;
 using SAM.ViewModels;
 using SAM.SplashScreen;
@@ -168,6 +169,8 @@ public partial class App
         MainWindow.Show();
 
         ShutdownMode = ShutdownMode.OnMainWindowClose;
+
+        WannabeManager.CheckAndRunUpdatesAsync().SafeFireAndForget(e => log.Error("Failed during WannabeManager startup updates.", e));
 
         return 0;
     }
