@@ -1,69 +1,72 @@
-<h1>
-  <div align="center">
-    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/syntax-tm/SteamAchievementManager">
-    <img alt="Build Badge" src="https://github.com/syntax-tm/SteamAchievementManager/actions/workflows/build.yml/badge.svg">
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/syntax-tm/SteamAchievementManager">
-    <img alt="GitHub release" src="https://img.shields.io/github/v/release/syntax-tm/SteamAchievementManager">
-    <img alt="GitHub pre-release" src="https://img.shields.io/github/v/release/syntax-tm/SteamAchievementManager?include_prereleases">
-  </div>
-</h1>
+<div align="center">
 
-<p align="center">
-  <img alt="SAM Logo" src="./resources/SAM_logo_default.svg" style="max-width: 600px; width: 70%;">
-</p>
+<img src="./resources/SAM_logo_default.svg" alt="SAM Logo" width="500"/>
 
-## Overview
+# Steam Achievement Manager
 
-The Steam Achievement Manager lets you manage achievements, stats, and more for any currently supported Steam app.
+**The ultimate open-source manager for your Steam library.**
 
-<p align="center">
+[![Stars](https://img.shields.io/github/stars/syntax-tm/SteamAchievementManager?style=for-the-badge&logo=github&color=yellow)](https://github.com/syntax-tm/SteamAchievementManager)
+[![Build](https://img.shields.io/github/actions/workflow/status/syntax-tm/SteamAchievementManager/build.yml?branch=main&style=for-the-badge&logo=github&label=Build)](https://github.com/syntax-tm/SteamAchievementManager/actions)
+[![Downloads](https://img.shields.io/github/downloads/syntax-tm/SteamAchievementManager/total?style=for-the-badge&logo=github&color=blue)](https://github.com/syntax-tm/SteamAchievementManager/releases)
+[![License](https://img.shields.io/github/license/syntax-tm/SteamAchievementManager?style=for-the-badge&color=orange)](https://github.com/syntax-tm/SteamAchievementManager)
+
+<br/>
+
+[📥 **Download Latest Release**](https://github.com/syntax-tm/SteamAchievementManager/releases/latest) &nbsp;&nbsp;•&nbsp;&nbsp; [🐛 Report a Bug](https://github.com/syntax-tm/SteamAchievementManager/issues) &nbsp;&nbsp;•&nbsp;&nbsp; [💬 Join Discussion](https://github.com/syntax-tm/SteamAchievementManager/discussions)
+
+</div>
+
+---
+
+## ✨ Overview
+
+**Steam Achievement Manager (SAM)** is a powerful tool that gives you complete control over your Steam library. Whether you want to manage achievements, track statistics, or reorganize your game collection, SAM provides a modern, robust interface to get it done.
+
+> This project is a revitalized, actively maintained fork of the original [Steam Achievement Manager](https://github.com/gibbed/SteamAchievementManager).
+
+<div align="center">
+  <br/>
   <a href="./resources/screenshots/SAM.png">
-    <img alt="SAM Screenshot" src="./resources/screenshots/SAM.png" />
+    <img src="./resources/screenshots/SAM.png" alt="SAM Screenshot" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/>
   </a>
-</p>
+  <br/>
+</div>
 
-This project is an actively updated fork of the [Steam Achievement Manager](https://github.com/gibbed/SteamAchievementManager).
+## 🚀 Key Features
 
-## Features
+### 🎨 Modern Experience
 
-### Modern UI & Experience
+- **Smooth Performance:** Features intelligent **Skeleton Loading** for a seamless, lag-free library browsing experience.
+- **Visual Excellence:** Enjoy a fully responsive design with **Dark Mode** support, updated icons, and a polished layout.
+- **Adaptive Interface:** Optimized for any screen size, treating your library with the visual respect it deserves.
 
-- **Skeleton Loading:** Smooth loading animations for a polished user experience.
-- **Enhanced Visuals:** Updated icons, improved layout, and dark mode support.
-- **Responsive Design:** Optimized for various window sizes with virtualizing control support.
+### 🎮 Ultimate Control
 
-### Library Management
+- **Library Your Way:** Mark games as **Favorites** ❤️ or **Hide** 🙈 unwanted titles to keep your collection clean.
+- **Smart Actions:** Right-click any game for instant access to **SteamDB**, **PCGamingWiki**, and **Store** pages.
+- **Deep Depots:** Built-in **Game Updater** allows you to manage game depots and updates directly.
 
-- **Favorites & Hiding:** easily mark games as favorites or hide them from your view.
-- **Advanced Filtering/Sorting:** (Planned) Sort by recent activity, name, or play status.
-- **Context Menu Actions:** Quick access to managing apps, viewing on SteamDB/PCGamingWiki, and more.
+### 🛠️ Power Tools
 
-### Tools & Utilities
+- **Data Export:** Easily **Export** your library data to JSON for backups or external analysis.
+- **Troubleshooting:** One-click access to **Logs** and a **Reset Settings** safety net if things go sideways.
+- **Safety First:** Built with modern stability practices to ensure your Steam data is handled safely.
 
-- **Game Updater:** Built-in tool to manage game updates and depots.
-- **Library Export:** Export your library list to JSON for backup or external tools.
-- **Reset Settings:** Easy option to reset application settings if issues arise.
-- **Log Viewer:** One-click access to application logs for troubleshooting.
+---
 
-## Project Structure
+## 🏗️ Architecture
 
-**SAM** is comprised of five projects.
-
-![](./resources/SAM_projects_white.svg#gh-dark-mode-only)
-![](./resources/SAM_projects_black.svg#gh-light-mode-only)
-
-`SAM` and `SAM.Console` (_WIP_) are the two application projects that create an executable. `SAM` is the executable that will display your Steam library and let you select an app (game) to manage. When managing a game, the app ID is passed as an argument to `SAM.exe` and it initializes the Steam API client with that AppID the same way that normal games would. Steam will show you as in-game, record your play time, and you can earn trading cards (assuming of course you have drops left).
-
-Both `SAM.API` and `SAM.Core` are libraries (`*.dll`). As its name suggests, `SAM.API` contains the native Steam API wrappers. `SAM.Core` is referenced by both executable projects (more on these later) and allows them to both use the same types, resources, etc. without having to duplicate code.
+**SAM** is modular by design, separating the core logic from the UI for stability and flexibility.
 
 <div align="center">
 
 ```mermaid
 %%{init: {"flowchart": {"htmlLabels": false, "width": "100%"}} }%%
 flowchart TB
-    subgraph Applicaitons
-        S["SAM"]:::app
-        SM["SAM.Console"]:::app
+    subgraph Applications
+        S["SAM (App)"]:::app
+        SM["SAM.Console (CLI)"]:::app
     end
     subgraph Unit Tests
       SU["SAM.UnitTests"]:::unitTests
@@ -82,54 +85,43 @@ flowchart TB
 
 </div>
 
-<table align="center">
-    <tr>
-        <th align="center">Legacy Project</th>
-        <th align="center">New Project</th>
-        <th style="width: 80%;">Description</th>
-    </tr>
-    <tr>
-        <td align="center"><b>SAM.Picker</b></td>
-        <td align="center"><b>SAM</b></td>
-        <td>The main executable used to select a game (or app) from your library</td>
-    </tr>
-    <tr>
-        <td align="center">-</th>
-        <td align="center"><b>SAM.Console</b></td>
-        <td>Command line interface for SAM for use with console, automation, etc. <i>This is still in development and will be released in a future version.</i></td>
-    </tr>
-    <tr>
-        <td align="center"><b>SAM.Game</b></td>
-        <td align="center"><b>SAM</b></td>
-        <td>Allows for viewing and editing an app's achievements and stats</td>
-    </tr>
-    <tr>
-        <td align="center"><b>SAM.API</b></td>
-        <td align="center"><b>SAM.API</b></td>
-        <td>Managed Steam API wrappers</td>
-    </tr>
-    <tr>
-        <td align="center">-</th>
-        <td align="center"><b>SAM.Core</b></td>
-        <td>Common resources used by both <code>SAM</code> and <code>SAM.Console</code>.</td>
-    </tr>
-</table>
+<details>
+<summary><b>📚 Legacy vs. New Structure (Click to Expand)</b></summary>
+<br/>
 
-## Sponsors
+| Legacy Project | New Project | Description |
+| :---: | :---: | :--- |
+| **SAM.Picker** | **SAM** | The main executable to browse and select games. |
+| - | **SAM.Console** | *WIP* Command-line interface for automation. |
+| **SAM.Game** | **SAM** | Integrated game stats & achievement editor. |
+| **SAM.API** | **SAM.API** | Managed Steam API wrappers. |
+| - | **SAM.Core** | Shared core resources and logic. |
 
-<p align="center">
-  <img alt="JetBrains" src="./resources/ref/JetBrains_Logo_2016.svg" width="120" />
-</p>
+</details>
 
-A special thank you to [JetBrains](https://www.jetbrains.com/) for their continued [Support of Open-Source Projects](https://www.jetbrains.com/community/opensource/#support) like **SAM**.
+---
+
+## ❤️ Sponsors & Thanks
+
+We are proudly supported by the open-source community.
+
+<div align="center">
+  <br/>
+  <a href="https://www.jetbrains.com/">
+    <img src="./resources/ref/JetBrains_Logo_2016.svg" alt="JetBrains" width="150" />
+  </a>
+  <p>Special thanks to <b>JetBrains</b> for supporting the project with <a href="https://www.jetbrains.com/community/opensource/#support">Open Source Licenses</a>.</p>
+</div>
+
+### Acknowledgements
+
+- [DevExpress](https://github.com/DevExpress/DevExpress.Mvvm.Free) for MVVM frameworks.
+- [SteamCountries](https://github.com/RudeySH/SteamCountries) for localization data.
+- [WPF UI](https://github.com/lepoco/wpfui) for the beautiful UI components.
+
+---
 
 > [!NOTE]
-> Active **SAM** contributors are eligible to receieve complimentary licenses [^1] for **all** **JetBrains** products. For questions regarding eligability please refer to the [Open Source FAQ](https://sales.jetbrains.com/hc/en-gb/categories/13706169183250-Free-Licenses-for-OSS-development).
-
-## Acknowledgements
-
-<p align="center">
-  <a href="https://github.com/DevExpress/DevExpress.Mvvm.Free">DevExpress</a> • <a href="https://github.com/RudeySH/SteamCountries">SteamCountries</a> • <a href="https://github.com/lepoco/wpfui">WPF UI</a>
-</p>
+> Active **SAM** contributors are eligible to receive complimentary JetBrains licenses [^1]. Check the [Open Source FAQ](https://sales.jetbrains.com/hc/en-gb/categories/13706169183250-Free-Licenses-for-OSS-development) for details.
 
 [^1]: For non-commercial development
