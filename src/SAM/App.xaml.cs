@@ -38,6 +38,19 @@ public partial class App
             GlobalContext.Properties[EntryAssemblyHelper.KEY] = new EntryAssemblyHelper();
             GlobalContext.Properties[SteamAppContextHelper.KEY] = new SteamAppContextHelper();
 
+            // Load log4net config from embedded resource
+            /*
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var resourceName = "SAM.sam_log.xml";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream != null)
+                {
+                    log4net.Config.XmlConfigurator.Configure(stream);
+                }
+            }
+            */
+
             log.Info("Application startup.");
 
             SAMHelper.VerifySteamProcess();

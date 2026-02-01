@@ -36,9 +36,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Remove="log4net.config" />
+    <Content Remove="log4net.config" />
+    <None Remove="sam_log.config" />
+    <Content Remove="sam_log.config" />
+    <None Remove="sam_log.xml" />
+    <Content Remove="sam_log.xml" />
   </ItemGroup>
 
   <ItemGroup>
