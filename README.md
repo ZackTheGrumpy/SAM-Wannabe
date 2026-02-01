@@ -6,14 +6,14 @@
 
 **The ultimate open-source manager for your Steam library.**
 
-[![Stars](https://img.shields.io/github/stars/syntax-tm/SteamAchievementManager?style=for-the-badge&logo=github&color=yellow)](https://github.com/syntax-tm/SteamAchievementManager)
-[![Build](https://img.shields.io/github/actions/workflow/status/syntax-tm/SteamAchievementManager/build.yml?branch=main&style=for-the-badge&logo=github&label=Build)](https://github.com/syntax-tm/SteamAchievementManager/actions)
-[![Downloads](https://img.shields.io/github/downloads/syntax-tm/SteamAchievementManager/total?style=for-the-badge&logo=github&color=blue)](https://github.com/syntax-tm/SteamAchievementManager/releases)
-[![License](https://img.shields.io/github/license/syntax-tm/SteamAchievementManager?style=for-the-badge&color=orange)](https://github.com/syntax-tm/SteamAchievementManager)
+[![Stars](https://img.shields.io/github/stars/ZackTheGrumpy/SAM-Wannabe?style=for-the-badge&logo=github&color=yellow)](https://github.com/ZackTheGrumpy/SAM-Wannabe)
+[![Build](https://img.shields.io/github/actions/workflow/status/ZackTheGrumpy/SAM-Wannabe/build.yml?branch=main&style=for-the-badge&logo=github&label=Build)](https://github.com/ZackTheGrumpy/SAM-Wannabe/actions)
+[![Downloads](https://img.shields.io/github/downloads/ZackTheGrumpy/SAM-Wannabe/total?style=for-the-badge&logo=github&color=blue)](https://github.com/ZackTheGrumpy/SAM-Wannabe/releases)
+[![License](https://img.shields.io/github/license/ZackTheGrumpy/SAM-Wannabe?style=for-the-badge&color=orange)](https://github.com/ZackTheGrumpy/SAM-Wannabe)
 
 <br/>
 
-[📥 **Download Latest Release**](https://github.com/syntax-tm/SteamAchievementManager/releases/latest) &nbsp;&nbsp;•&nbsp;&nbsp; [🐛 Report a Bug](https://github.com/syntax-tm/SteamAchievementManager/issues) &nbsp;&nbsp;•&nbsp;&nbsp; [💬 Join Discussion](https://github.com/syntax-tm/SteamAchievementManager/discussions)
+[📥 **Download Latest Release**](https://github.com/ZackTheGrumpy/SAM-Wannabe/releases/latest) &nbsp;&nbsp;•&nbsp;&nbsp; [🐛 Report a Bug](https://github.com/ZackTheGrumpy/SAM-Wannabe/issues) &nbsp;&nbsp;•&nbsp;&nbsp; [💬 Join Discussion](https://github.com/ZackTheGrumpy/SAM-Wannabe/discussions)
 
 </div>
 
