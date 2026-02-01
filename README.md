@@ -7,7 +7,7 @@
 **The ultimate open-source manager for your Steam library.**
 
 [![Stars](https://img.shields.io/github/stars/ZackTheGrumpy/SAM-Wannabe?style=for-the-badge&logo=github&color=yellow)](https://github.com/ZackTheGrumpy/SAM-Wannabe)
-[![Downloads](https://img.shields.io/github/downloads/ZackTheGrumpy/SAM-Wannabe/total?style=for-the-badge&logo=github&color=blue)](https://github.com/ZackTheGrumpy/SAM-Wannabe/releases)
+[![Downloads](https://img.shields.io/github/downloads/ZackTheGrumpy/SAM-Wannabe/total?style=for-the-badge&logo=github&color=blue)](https://github.com/ZackTheGrumpy/SAM-Wannabe/releases/tag/Latest)
 
 
 <br/>
