@@ -103,7 +103,25 @@
                              IsChecked="{Binding HomeVm.CurrentSettings.ShowFavoritesOnly, FallbackValue=False, Mode=TwoWay}" />
             </ui:MenuItem>
             <ui:MenuItem Header="Tools" Icon="{ui:SymbolIcon Toolbox24}">
-                <controls:MenuHeaderItem Header="Steam" IsEnabled="False" />
+                <ui:MenuItem Command="{Binding OpenGameUpdaterCommand}">
+                    <ui:MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Game Updater" Grid.Column="0" VerticalAlignment="Center" />
+                            <ui:SymbolIcon Symbol="Info24" Grid.Column="1" Margin="8,0,0,0"
+                                         ToolTip="This is updater for fething latest manifest file to force update game in Steam. This also for fixing “UNKNOWN ERROR” &amp; “NO INTERNET CONNECTION” error." />
+                        </Grid>
+                    </ui:MenuItem.Header>
+                    <ui:MenuItem.Icon>
+                        <ui:SymbolIcon Symbol="ArrowDownload24" />
+                    </ui:MenuItem.Icon>
+                    <ui:MenuItem.ToolTip>
+                        <ToolTip Content="This is updater for fething latest manifest file to force update game in Steam. This also for fixing “UNKNOWN ERROR” &amp; “NO INTERNET CONNECTION” error." />
+                    </ui:MenuItem.ToolTip>
+                </ui:MenuItem>
                 <ui:MenuItem Header="Console" Command="{Binding OpenSteamConsoleCommand}" />
             </ui:MenuItem>
             <ui:MenuItem Header="Help" Icon="{ui:SymbolIcon Question24}">
@@ -114,16 +132,32 @@
         </Menu>
         <Separator Margin="0,4,4,4" 
                    Visibility="{Binding IsLibrary, Converter={dxmvvm:BooleanToVisibilityConverter}}" />
-        <ui:AutoSuggestBox Text="{Binding HomeVm.CurrentVm.FilterText, Delay=300, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                           PlaceholderText="Search..." BorderBrush="Transparent"
-                           Icon="Search24" Margin="5,3" FontSize="13" Padding="3,0" Height="30"
-                           OriginalItemsSource="{Binding HomeVm.CurrentVm.Suggestions, Mode=OneWay}"
-                           Width="400"
-                           Visibility="{Binding IsLibrary, Converter={dxmvvm:BooleanToVisibilityConverter}}">
-            <ui:AutoSuggestBox.Style>
-                <Style TargetType="{x:Type ui:AutoSuggestBox}" BasedOn="{StaticResource BaseUiAutoSuggestBoxStyle}" />
-            </ui:AutoSuggestBox.Style>
-        </ui:AutoSuggestBox>
+        <Grid Visibility="{Binding IsLibrary, Converter={dxmvvm:BooleanToVisibilityConverter}}">
+            <ui:AutoSuggestBox Text="{Binding HomeVm.CurrentVm.FilterText, Delay=300, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                               BorderBrush="Transparent"
+                               Icon="Search24" Margin="5,3" FontSize="13" Padding="3,0" Height="30"
+                               OriginalItemsSource="{Binding HomeVm.CurrentVm.Suggestions, Mode=OneWay}"
+                               Width="400">
+                <ui:AutoSuggestBox.Style>
+                    <Style TargetType="{x:Type ui:AutoSuggestBox}" BasedOn="{StaticResource BaseUiAutoSuggestBoxStyle}" />
+                </ui:AutoSuggestBox.Style>
+            </ui:AutoSuggestBox>
+            <TextBlock Text="Search..." IsHitTestVisible="False" VerticalAlignment="Center" Margin="40,0,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HomeVm.CurrentVm.FilterText}" Value="">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding HomeVm.CurrentVm.FilterText}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
     </StackPanel>
 
 </UserControl>

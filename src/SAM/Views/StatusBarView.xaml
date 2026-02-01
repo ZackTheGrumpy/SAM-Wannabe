@@ -149,6 +149,22 @@
                 </ToggleButton>
             </StatusBarItem>
 
+            <!-- Pagination Controls (Center) -->
+            <StatusBarItem HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <ui:Button Command="{Binding PreviousPageCommand}" Content="&lt;" Appearance="Transparent" Margin="5,0"/>
+                    <TextBlock VerticalAlignment="Center" Margin="5,0">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="Page {0} of {1}">
+                                <Binding Path="CurrentPage" />
+                                <Binding Path="TotalPages" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <ui:Button Command="{Binding NextPageCommand}" Content="&gt;" Appearance="Transparent" Margin="5,0"/>
+                </StackPanel>
+            </StatusBarItem>
+
             <StatusBarItem HorizontalAlignment="Right" Padding="0" Margin="0">
                 <StackPanel Orientation="Horizontal">
                     <StatusBarItem Content="{Binding Library.PercentComplete, Mode=OneWay, FallbackValue=0, TargetNullValue=0, Converter={StaticResource PercentFormatConverter}}"

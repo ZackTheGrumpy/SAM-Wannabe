@@ -13,6 +13,7 @@ using SAM.Core.Interfaces;
 using SAM.Settings;
 using SAM.Core.Storage;
 using SAM.Managers;
+using SAM.Extensions;
 
 namespace SAM;
 
@@ -339,22 +340,22 @@ public partial class SteamApp : BindableBase, ISteamApp
         log.Debug($"Saved {nameof(SteamAppSettings)} {settings}.");
     }
     
-    protected async Task OnIsHiddenChanged()
+    protected void OnIsHiddenChanged()
     {
         if (IsLoading) return;
         
         RefreshGroup();
 
-        await SaveSettingsAsync();
+        SaveSettingsAsync().SafeFireAndForget(e => log.Error($"Failed to save settings for {Name} ({Id})", e));
     }
 
-    protected async Task OnIsFavoriteChanged()
+    protected void OnIsFavoriteChanged()
     {
         if (IsLoading) return;
         
         RefreshGroup();
         
-        await SaveSettingsAsync();
+        SaveSettingsAsync().SafeFireAndForget(e => log.Error($"Failed to save settings for {Name} ({Id})", e));
     }
 
     protected void OnHeaderChanged()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,6 +12,7 @@ using SAM.Core.Messages;
 using SAM.Core;
 using SAM.Managers;
 using SAM.Services;
+using SAM.Extensions;
 
 namespace SAM.ViewModels;
 
@@ -36,6 +38,15 @@ public partial class LibraryViewModel
     [GenerateProperty] protected List<string> _suggestions;
     [GenerateProperty] protected SteamApp _selectedItem;
     [GenerateProperty] protected SteamLibrary _library;
+    
+    // Pagination
+    [GenerateProperty] protected int _currentPage = 1;
+    [GenerateProperty] protected int _totalPages = 1;
+    [GenerateProperty] protected System.Collections.IEnumerable _pagedView;
+    protected const int PageSize = 16;
+    
+    // Skeleton Loading
+    public List<int> SkeletonItems { get; } = Enumerable.Range(0, 16).ToList();
 
     protected LibraryViewModel(ILibrarySettings settings)
     {
@@ -95,7 +106,7 @@ public partial class LibraryViewModel
     }
 
     [GenerateCommand]
-    public void Refresh(bool force = false)
+    public async Task Refresh(bool force = false)
     {
         if (_settings == null) return;
 
@@ -103,10 +114,15 @@ public partial class LibraryViewModel
 
         if (force)
         {
-            SteamLibraryManager.DefaultLibrary.Refresh();
+            await SteamLibraryManager.DefaultLibrary.RefreshAsync().ConfigureAwait(false);
         }
 
         Library ??= SteamLibraryManager.DefaultLibrary;
+        if (Library == null)
+        {
+            _loading = false;
+            return;
+        }
 
         // ReSharper disable once RedundantCheckBeforeAssignment
         _itemsViewSource ??= new ()
@@ -159,6 +175,8 @@ public partial class LibraryViewModel
             .ThenBy(a => a.Name)
             .Select(a => a.Name).ToList();
 
+        UpdatePagedView();
+
         _loading = false;
     }
 
@@ -167,6 +185,8 @@ public partial class LibraryViewModel
         if (_loading) return;
 
         ItemsView?.Refresh();
+        CurrentPage = 1; 
+        UpdatePagedView();
     }
 
     protected void OnShowHiddenChanged()
@@ -187,7 +207,7 @@ public partial class LibraryViewModel
     {
         if (_loading) return;
 
-        Refresh();
+        Refresh().SafeFireAndForget(e => log.Error("Failed to refresh library", e));
     }
 
     protected virtual void OnActionMessage(ActionMessage message)
@@ -197,7 +217,15 @@ public partial class LibraryViewModel
         // on library refresh completed
         if (message.EntityType == EntityType.Library && message.ActionType == ActionType.Refreshed)
         {
-            ItemsView?.Refresh();
+            if (ItemsView == null)
+            {
+                Refresh().SafeFireAndForget(e => log.Error("Failed to re-initialize library view", e));
+            }
+            else
+            {
+                ItemsView.Refresh();
+                UpdatePagedView();
+            }
         }
     }
 
@@ -214,5 +242,45 @@ public partial class LibraryViewModel
         var isNonFavoriteFiltered = !_settings.ShowFavoritesOnly || app.IsFavorite;
 
         e.Accepted = isNameMatch && isJunkFiltered && isHiddenFiltered && isNonFavoriteFiltered;
+    }
+
+    [GenerateCommand]
+    public void NextPage()
+    {
+        if (CurrentPage < TotalPages)
+        {
+            CurrentPage++;
+            UpdatePagedView();
+        }
+    }
+
+    [GenerateCommand]
+    public void PreviousPage()
+    {
+        if (CurrentPage > 1)
+        {
+            CurrentPage--;
+            UpdatePagedView();
+        }
+    }
+
+    protected void UpdatePagedView()
+    {
+        if (ItemsView == null) return;
+
+        // Ensure we are working with the filtered list
+        var filteredItems = ItemsView.Cast<SteamApp>().ToList();
+        
+        int totalItems = filteredItems.Count;
+        TotalPages = (int)Math.Ceiling((double)totalItems / PageSize);
+        if (TotalPages < 1) TotalPages = 1;
+
+        if (CurrentPage > TotalPages) CurrentPage = TotalPages;
+        if (CurrentPage < 1) CurrentPage = 1;
+
+        PagedView = filteredItems
+            .Skip((CurrentPage - 1) * PageSize)
+            .Take(PageSize)
+            .ToList();
     }
 }

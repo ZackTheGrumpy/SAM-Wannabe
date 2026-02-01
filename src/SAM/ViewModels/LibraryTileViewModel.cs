@@ -20,7 +20,7 @@ public partial class LibraryTileViewModel : LibraryViewModel
     {
         Settings = settings;
 
-        Refresh();
+        Refresh().SafeFireAndForget(e => log.Error("Failed to refresh library", e));
 
         _loading = false;
     }
@@ -76,7 +76,7 @@ public partial class LibraryTileViewModel : LibraryViewModel
 
         Messenger.Default.SendAction(EntityType.HomeSettings, ActionType.Changed);
 
-        Refresh();
+        Refresh().SafeFireAndForget(e => log.Error("Failed to refresh library", e));
     }
 
 }

@@ -31,7 +31,7 @@ public partial class LibraryTileSettings : ILibrarySettings
     private bool _showFavoritesOnly;
 
     [GenerateProperty(OnChangedMethod = nameof(Changed))]
-    private bool _enableGrouping = true;
+    private bool _enableGrouping = false;
     
     [GenerateProperty(OnChangedMethod = nameof(Changed))]
     private bool _showImages = true;

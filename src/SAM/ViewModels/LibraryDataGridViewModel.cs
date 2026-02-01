@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm.CodeGenerators;
+using SAM.Extensions;
 
 namespace SAM.ViewModels;
 
@@ -11,7 +12,7 @@ public partial class LibraryDataGridViewModel : LibraryViewModel
     {
         Settings = settings;
 
-        Refresh();
+        Refresh().SafeFireAndForget(e => log.Error("Failed to refresh library", e));
 
         _loading = false;
     }

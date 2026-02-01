@@ -55,6 +55,22 @@ public partial class MenuViewModel
     }
 
     [GenerateCommand]
+    public void OpenGameUpdater()
+    {
+        try
+        {
+            var window = new SAM.Views.GameUpdaterWindow();
+            window.Owner = Application.Current.MainWindow;
+            window.ShowDialog();
+        }
+        catch (Exception ex)
+        {
+            System.Windows.MessageBox.Show($"Failed to open Game Updater: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            log.Error("Failed to open Game Updater window.", ex);
+        }
+    }
+
+    [GenerateCommand]
     public void ResetAllSettings()
     {
         try

@@ -21,10 +21,10 @@ namespace SAM.UnitTests
         {
             var appData = SteamworksManager.GetAppInfo(appId);
 
-            Assert.NotNull(appData);
-            Assert.NotEmpty(appData.Name);
+            Assert.NotNull(appData.StoreApp);
+            Assert.NotEmpty(appData.StoreApp.Name);
 
-            _output.WriteLine($"App {appId} is '{appData.Name}'.");
+            _output.WriteLine($"App {appId} is '{appData.StoreApp.Name}'.");
         }
 
         [Theory(DisplayName = "Steamworks App (w/ DLC)")]
@@ -34,9 +34,9 @@ namespace SAM.UnitTests
         {
             var appData = SteamworksManager.GetAppInfo(appId, true);
 
-            Assert.NotNull(appData);
-            Assert.NotEmpty(appData.Name);
-            Assert.NotEmpty(appData.DlcInfo);
+            Assert.NotNull(appData.StoreApp);
+            Assert.NotEmpty(appData.StoreApp.Name);
+            Assert.NotEmpty(appData.StoreApp.DlcInfo);
         }
 
         [Theory(DisplayName = "Steamworks App (w/o DLC)")]
@@ -45,9 +45,9 @@ namespace SAM.UnitTests
         {
             var appData = SteamworksManager.GetAppInfo(appId, true);
 
-            Assert.NotNull(appData);
-            Assert.NotEmpty(appData.Name);
-            Assert.Empty(appData.DlcInfo);
+            Assert.NotNull(appData.StoreApp);
+            Assert.NotEmpty(appData.StoreApp.Name);
+            Assert.Empty(appData.StoreApp.DlcInfo);
         }
 
         [Fact(DisplayName = "Steamworks App List")]

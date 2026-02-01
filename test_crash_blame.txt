@@ -1,0 +1,12 @@
+﻿  Determining projects to restore...
+  All projects are up-to-date for restore.
+  SAM.API -> C:\Users\aminu\OneDrive\Documents\GitHub\SAM-Wannabe\src\SAM.API\bin\Debug\SAM.API.dll
+  SAM.Core -> C:\Users\aminu\OneDrive\Documents\GitHub\SAM-Wannabe\src\SAM.Core\bin\Debug\SAM.Core.dll
+  SAM.UnitTests -> C:\Users\aminu\OneDrive\Documents\GitHub\SAM-Wannabe\src\SAM.UnitTests\bin\Debug\SAM.UnitTests.dll
+Test run for C:\Users\aminu\OneDrive\Documents\GitHub\SAM-Wannabe\src\SAM.UnitTests\bin\Debug\SAM.UnitTests.dll (.NETCoreApp,Version=v9.0)
+VSTest version 18.0.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+

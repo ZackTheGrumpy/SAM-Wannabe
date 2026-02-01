@@ -30,7 +30,7 @@ public partial class LibraryGridSettings : ILibrarySettings
     private bool _showFavoritesOnly;
 
     [GenerateProperty(OnChangedMethod = nameof(Changed))]
-    private bool _enableGrouping = true;
+    private bool _enableGrouping = false;
     
     [JsonIgnore]
     public bool Loaded { get; private set; }

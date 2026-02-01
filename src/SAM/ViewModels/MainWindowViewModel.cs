@@ -1,8 +1,11 @@
 ﻿using System.Windows;
+using System.Threading.Tasks;
 using DevExpress.Mvvm.CodeGenerators;
 using log4net;
 using SAM.Behaviors;
 using SAM.SplashScreen;
+using SAM.Managers;
+using SAM.Extensions;
 
 namespace SAM.ViewModels;
 
@@ -59,12 +62,18 @@ public partial class MainWindowViewModel
     }
     
     [GenerateCommand]
-    protected void OnLoaded()
+    protected async Task OnLoaded()
     {
+        await SteamLibraryManager.Default.InitAsync().ConfigureAwait(false);
+        
+        // Trigger library refresh to populate items
+        SteamLibraryManager.DefaultLibrary?.RefreshAsync().SafeFireAndForget(e => log.Error("Failed to auto-refresh library on startup", e));
+
         SplashScreenHelper.Close();
 
         // activate the main window after closing the splash screen and shutting its dispatcher down
-        Application.Current.MainWindow?.Activate();
+        // activate the main window after closing the splash screen and shutting its dispatcher down
+        Application.Current.Dispatcher.Invoke(() => Application.Current.MainWindow?.Activate());
     }
 
     private void Init()
