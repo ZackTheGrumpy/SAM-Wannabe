@@ -24,6 +24,27 @@ The Steam Achievement Manager lets you manage achievements, stats, and more for 
 
 This project is an actively updated fork of the [Steam Achievement Manager](https://github.com/gibbed/SteamAchievementManager).
 
+## Features
+
+### Modern UI & Experience
+
+- **Skeleton Loading:** Smooth loading animations for a polished user experience.
+- **Enhanced Visuals:** Updated icons, improved layout, and dark mode support.
+- **Responsive Design:** Optimized for various window sizes with virtualizing control support.
+
+### Library Management
+
+- **Favorites & Hiding:** easily mark games as favorites or hide them from your view.
+- **Advanced Filtering/Sorting:** (Planned) Sort by recent activity, name, or play status.
+- **Context Menu Actions:** Quick access to managing apps, viewing on SteamDB/PCGamingWiki, and more.
+
+### Tools & Utilities
+
+- **Game Updater:** Built-in tool to manage game updates and depots.
+- **Library Export:** Export your library list to JSON for backup or external tools.
+- **Reset Settings:** Easy option to reset application settings if issues arise.
+- **Log Viewer:** One-click access to application logs for troubleshooting.
+
 ## Project Structure
 
 **SAM** is comprised of five projects.
