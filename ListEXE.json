@@ -32,5 +32,11 @@
     "Total War: THREE KINGDOMS": "ThreeKingdoms.exe",
     "Watch Dogs 2": "WatchDogs2.exe",
     "Wreckfest 2": "Wreckfest2.exe",
+    "FC26": "FC26_Showcase.exe",
+    "Diablo II": "ZClient.exe""D2R.exe",
     "Assassin's Creed Odyssey": "!RUN_THIS.bat"
+}
+
+{
+    "D2R.exe": "steam_api64.dll"
 }
