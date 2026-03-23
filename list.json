@@ -1,0 +1,41 @@
+{
+    "A Way Out: 1222700": "AWayOut.exe",
+    "Aliens: Colonial Marines: 49540": "ACM.exe",
+    "BeamNG.Drive: 284160": "BeamMP-Launcher.exe",
+    "Call of Duty: Black Ops 3: 311210": "boiii.exe",
+    "Call of Duty: Black Ops 6 - Campaign: 2933620": "start_sp24.bat",
+    "Call of Duty: Black Ops Cold War: 1985810": "BlackOpsColdWar.exe",
+    "Call of Duty: Modern Warfare: 2000950": "!start_cod.bat",
+    "Call of Duty: Modern Warfare II: 3595230": "!start_cod23.bat",
+    "CarX Street: 1114150": "CarXStreet.exe",
+    "Elden Ring: 1245620": "ersc_launcher.exe",
+    "Elden Ring Nightreign: 2622380": "nrsc_launcher.exe",
+    "FIFA 21: 1313860": "FIFA21.exe",
+    "FIFA 22: 1506830": "FIFA22.exe",
+    "FIFA 23: 1811260": "Launcher.exe",
+    "GTA IV: 12210": "GTAIV.exe",
+    "GTA V Enhanced: 3240220": "PlayGTAV.exe",
+    "GTA V Legacy: 271590": "Play Game.bat",
+    "GTA SA DE: 1547000": "PlayGTASanAndreas.exe",
+    "GTA III DE: 1546970": "PlayGTA3.exe",
+    "GTA VC DE: 1546990": "PlayGTAViceCity.exe",
+    "Helldivers 1: 394510": "Launcher.exe",
+    "Hitman 3 World of Assassination: 1659040": "HITMAN 3 Launcher.cmd",
+    "Mass Effect™: Andromeda: 1238000": "MassEffectAndromeda.exe",
+    "Microsoft Flight Simulator: 1250410": "GDK_Helper.bat",
+    "Monster Hunter: World Online: 582010": "Launcher.exe",
+    "NSF Hot Pursuit Remastered: 1328660": "NFS11Remastered.exe",
+    "Riders Republic: 2290180": "Start.exe",
+    "Scott Pilgrim vs The World: 2215260": "Scott.exe",
+    "Sonic Colors: UItimate: 2055290": "SonicColorsUltimate.exe",
+    "STAR WARS™: Squadrons: 1222730": "starwarssquadrons_launcher.exe",
+    "Total War: THREE KINGDOMS: 779340": "ThreeKingdoms.exe",
+    "Watch Dogs 2: 447040": "WatchDogs2.exe",
+    "Wreckfest 2: 1203190": "Wreckfest2.exe",
+    "Diablo II: 2536520": "D2R.exe",
+    "Assassin's Creed Odyssey: 812140": "!RUN_THIS.bat"
+}
+
+{
+    "D2R.exe": "steam_api64.dll"
+}
